@@ -1,15 +1,13 @@
-package com.journalApp.JournalApp.Controller;
+package com.journalApp.Controller;
 
-import com.journalApp.JournalApp.entity.User;
-import com.journalApp.JournalApp.repository.UserRepository;
-import com.journalApp.JournalApp.service.UserService;
+import com.journalApp.entity.User;
+import com.journalApp.repository.UserRepository;
+import com.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +20,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<User> getAllUser(){
         return userService.getAll();
     }
@@ -49,6 +47,17 @@ public class UserController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         userRepository.deleteByUserName(authentication.getName());
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @GetMapping
+    public ResponseEntity<?> greeting() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            String username = authentication.getName();
+            return new ResponseEntity<>("Hi " + username, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Hi Guest", HttpStatus.OK);
+        }
     }
 
 }

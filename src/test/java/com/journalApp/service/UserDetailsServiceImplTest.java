@@ -1,6 +1,6 @@
-package com.journalApp.JournalApp.service;
-import com.journalApp.JournalApp.entity.User;
-import com.journalApp.JournalApp.repository.UserRepository;
+package com.journalApp.service;
+import com.journalApp.entity.User;
+import com.journalApp.repository.UserRepository;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

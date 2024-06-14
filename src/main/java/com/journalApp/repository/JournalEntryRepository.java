@@ -1,5 +1,5 @@
-package com.journalApp.JournalApp.repository;
-import com.journalApp.JournalApp.entity.JournalEntry;
+package com.journalApp.repository;
+import com.journalApp.entity.JournalEntry;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

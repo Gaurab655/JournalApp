@@ -1,8 +1,8 @@
-package com.journalApp.JournalApp.Controller;
-import com.journalApp.JournalApp.entity.JournalEntry;
-import com.journalApp.JournalApp.entity.User;
-import com.journalApp.JournalApp.service.JournalEntryService;
-import com.journalApp.JournalApp.service.UserService;
+package com.journalApp.Controller;
+import com.journalApp.entity.JournalEntry;
+import com.journalApp.entity.User;
+import com.journalApp.service.JournalEntryService;
+import com.journalApp.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
