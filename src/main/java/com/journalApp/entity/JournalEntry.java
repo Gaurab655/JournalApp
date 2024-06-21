@@ -7,6 +7,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Document(collection = "journalEntry")
 @Getter
 @Setter
@@ -17,5 +19,7 @@ public class JournalEntry {
     @NonNull
     private String title;
     private String description;
+    private LocalDateTime date ;
+    private Sentiment sentiment;
 
 }
